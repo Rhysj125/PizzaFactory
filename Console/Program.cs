@@ -11,13 +11,15 @@ namespace PizzaFactory
     /// </summary>
     public class Program
     {
-        static async Task Main(string[] args)
+        static Task Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
 
             var useCase = host.Services.GetService<GeneratePizzasUseCase>();
 
-            await useCase.Execute();
+            useCase.Execute();
+
+            return host.StopAsync();
         }
 
         static IHostBuilder CreateHostBuilder(string[] args)

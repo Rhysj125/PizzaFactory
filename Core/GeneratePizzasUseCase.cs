@@ -4,8 +4,8 @@ using Domain;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Core
 {
@@ -31,7 +31,7 @@ namespace Core
         /// <summary>
         /// Execute the <see cref="GeneratePizzasUseCase"/>.
         /// </summary>
-        public async Task Execute()
+        public void Execute()
         {
             // Create 50 random pizzas
             var pizzas = GeneratePizzas();
@@ -41,26 +41,32 @@ namespace Core
             {
                 pizza.Cook(_pizzaConfiguration.BasePizzaCookingTime);
 
-                Thread.Sleep(_pizzaConfiguration.CookingInterval);
+                _pizzaRepository.SavePizza(pizza);
 
-                await _pizzaRepository.SavePizza(pizza);
+                Thread.Sleep(_pizzaConfiguration.CookingInterval);
             }
         }
 
         private IEnumerable<Pizza> GeneratePizzas()
         {
-            var bases = _pizzaConfiguration.PizzaBases;
-            var toppings = _pizzaConfiguration.Toppings;
+            var bases = _pizzaConfiguration.BaseConfigurations;
+            var toppings = _pizzaConfiguration.ToppingConfigurations;
 
-            for(int i = 0; i < _pizzaConfiguration.PizzasToMake; i++)
+            var rnd = new Random();
+
+            for (int i = 0; i < _pizzaConfiguration.PizzasToMake; i++)
             {
-                var rnd = new Random();
+                var pizzaBase = bases[rnd.Next(bases.Count())];
+                var topping = toppings[rnd.Next(toppings.Count())];
 
-                var pizzaBase = bases[rnd.Next(bases.Count - 1)];
-                var topping = toppings[rnd.Next(toppings.Count - 1)];
-
-                yield return new Pizza(pizzaBase, topping);
+                yield return new Pizza(CreatePizzaBase(pizzaBase), CreateTopping(topping));
             }
         }
+
+        private PizzaBase CreatePizzaBase(BaseConfiguration baseConfiguration)
+            => new PizzaBase(baseConfiguration.Name, baseConfiguration.CookingMultiplier);
+
+        private Topping CreateTopping(ToppingConfiguration toppingConfiguration)
+            => new Topping(toppingConfiguration.Name);
     }
 }

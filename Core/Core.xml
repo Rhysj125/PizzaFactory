@@ -4,17 +4,32 @@
         <name>Core</name>
     </assembly>
     <members>
+        <member name="T:Core.BaseConfiguration">
+            <summary>
+            A <see cref="T:Core.BaseConfiguration"/>.
+            </summary>
+        </member>
+        <member name="P:Core.BaseConfiguration.Name">
+            <summary>
+            The name of the pizza base.
+            </summary>
+        </member>
+        <member name="P:Core.BaseConfiguration.CookingMultiplier">
+            <summary>
+            The cooking time multiplier.
+            </summary>
+        </member>
         <member name="T:Core.Configuration.CoreConfiguration">
             <summary>
             The configuration for Pizzas.
             </summary>
         </member>
-        <member name="P:Core.Configuration.CoreConfiguration.PizzaBases">
+        <member name="P:Core.Configuration.CoreConfiguration.BaseConfigurations">
             <summary>
             A list of possible pizza bases.
             </summary>
         </member>
-        <member name="P:Core.Configuration.CoreConfiguration.Toppings">
+        <member name="P:Core.Configuration.CoreConfiguration.ToppingConfigurations">
             <summary>
             A list of possible pizza toppings.
             </summary>
@@ -45,6 +60,16 @@
             </summary>
             <param name="services"></param>
             <returns></returns>
+        </member>
+        <member name="T:Core.ToppingConfiguration">
+            <summary>
+            A <see cref="T:Core.ToppingConfiguration"/>.
+            </summary>
+        </member>
+        <member name="P:Core.ToppingConfiguration.Name">
+            <summary>
+            The name of the topping.
+            </summary>
         </member>
         <member name="T:Core.GeneratePizzasUseCase">
             <summary>

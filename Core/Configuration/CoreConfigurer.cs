@@ -20,7 +20,7 @@ namespace Core.Configuration
 
             return services
                 .AddScoped<GeneratePizzasUseCase>()
-                .Configure<CoreConfiguration>(options => config.GetSection("CoreConfiguration").Bind(options));
+                .Configure<CoreConfiguration>(options => config.GetSection("CoreSettings").Bind(options));
         }
     }
 }

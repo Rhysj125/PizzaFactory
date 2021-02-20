@@ -1,4 +1,5 @@
 ﻿using Core.Repositories;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure.Configuration
@@ -10,9 +11,13 @@ namespace Infrastructure.Configuration
         /// </summary>
         /// <param name="services"></param>
         /// <returns></returns>
-        public static IServiceCollection ConfigureInfrastructure(this IServiceCollection services)
+        public static IServiceCollection ConfigureInfrastructureDependancies(this IServiceCollection services)
         {
-            return services.AddScoped<IPizzaRepository, FilePizzaRepository>();
+            var config = new ConfigurationBuilder().AddJsonFile("Configuration/InfrastructureSettings.json", optional: false, reloadOnChange: true).Build();
+
+            return services
+                .AddScoped<IPizzaRepository, FilePizzaRepository>()
+                .Configure<InfrastructureConfiguration>(options => config.GetSection("InfrastructureSettings").Bind(options));
         }
     }
 }

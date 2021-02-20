@@ -1,6 +1,9 @@
 ﻿{
-  "ToppingConfiguration": {
-    "Toppings": [
+  "CoreSettings": {
+    "PizzasToMake": 50,
+    "BasePizzaCookingTime": 10,
+    "CookingInterval": 20,
+    "ToppingConfigurations": [
       {
         "Name": "Pepperoni"
       },
@@ -11,18 +14,18 @@
         "Name": "Ham and Mushroom"
       }
     ],
-    "Bases": [
+    "BaseConfigurations": [
       {
         "Name": "Deep Pan",
-        "CookTimeMultiplier": 2
+        "CookingMultiplier": 2
       },
       {
         "Name": "Stuffed Crust",
-        "CookTimeMultiplier": 1.5
+        "CookingMultiplier": 1.5
       },
       {
         "Name": "Thin and Crispy",
-        "CookTimeMultiplier": 1
+        "CookingMultiplier": 1
       }
     ]
   }

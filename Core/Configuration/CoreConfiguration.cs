@@ -1,7 +1,4 @@
-﻿using Domain;
-using System.Collections.Generic;
-
-namespace Core.Configuration
+﻿namespace Core.Configuration
 {
     /// <summary>
     /// The configuration for Pizzas.
@@ -11,12 +8,12 @@ namespace Core.Configuration
         /// <summary>
         /// A list of possible pizza bases.
         /// </summary>
-        public IList<PizzaBase> PizzaBases { get; set; }
+        public BaseConfiguration[] BaseConfigurations { get; set; }
 
         /// <summary>
         /// A list of possible pizza toppings.
         /// </summary>
-        public IList<Topping> Toppings { get; set; }
+        public ToppingConfiguration[] ToppingConfigurations { get; set; }
 
         /// <summary>
         /// The number of pizzas to generate

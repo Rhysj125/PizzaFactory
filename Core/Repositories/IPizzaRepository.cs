@@ -13,6 +13,6 @@ namespace Core.Repositories
         /// </summary>
         /// <param name="pizza">The <see cref="Pizza"/> to save.</param>
         /// <returns>A <see cref="Task"/>.</returns>
-        Task SavePizza(Pizza pizza);
+        void SavePizza(Pizza pizza);
     }
 }

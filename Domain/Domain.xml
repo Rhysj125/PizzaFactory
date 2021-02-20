@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Domain.Pizza">
+            <summary>
+            A <see cref="T:Domain.Pizza"/>.
+            </summary>
+        </member>
+        <member name="P:Domain.Pizza.Base">
+            <summary>
+            The <see cref="P:Domain.Pizza.Base"/> for the pizza.
+            </summary>
+        </member>
+        <member name="P:Domain.Pizza.Topping">
+            <summary>
+            The <see cref="P:Domain.Pizza.Topping"/> for a pizza
+            </summary>
+        </member>
+        <member name="M:Domain.Pizza.#ctor(Domain.PizzaBase,Domain.Topping)">
+            <summary>
+            Initalises an instance of <see cref="T:Domain.Pizza"/>.
+            </summary>
+            <param name="pizzaBase">The <see cref="T:Domain.PizzaBase"/> to use.</param>
+            <param name="topping">The <see cref="P:Domain.Pizza.Topping"/> to use.</param>
+        </member>
+        <member name="M:Domain.Pizza.Cook(System.Int32)">
+            <summary>
+            Cook the pizza
+            </summary>
+        </member>
+        <member name="T:Domain.PizzaBase">
+            <summary>
+            A <see cref="T:Domain.PizzaBase"/>.
+            </summary>
+        </member>
+        <member name="P:Domain.PizzaBase.Name">
+            <summary>
+            The name of the pizza base.
+            </summary>
+        </member>
+        <member name="P:Domain.PizzaBase.CookingMultiplier">
+            <summary>
+            The cooking time multiplier.
+            </summary>
+        </member>
+        <member name="M:Domain.PizzaBase.#ctor(System.String,System.Decimal)">
+            <summary>
+            Creates an instance of <see cref="T:Domain.PizzaBase"/>.
+            </summary>
+            <param name="name"></param>
+            <param name="cookingMultiplier"></param>
+        </member>
+        <member name="T:Domain.Topping">
+            <summary>
+            A <see cref="T:Domain.Topping"/>.
+            </summary>
+        </member>
+        <member name="P:Domain.Topping.Name">
+            <summary>
+            The name of the topping.
+            </summary>
+        </member>
+        <member name="P:Domain.Topping.CookTime">
+            <summary>
+            The amount of time taken to cook the topping.
+            </summary>
+        </member>
+        <member name="M:Domain.Topping.#ctor(System.String)">
+            <summary>
+            Initalises an instance of <see cref="T:Domain.Topping"/>.
+            </summary>
+            <param name="name"></param>
+        </member>
+    </members>
+</doc>

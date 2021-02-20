@@ -1,0 +1,29 @@
+﻿{
+  "ToppingConfiguration": {
+    "Toppings": [
+      {
+        "Name": "Pepperoni"
+      },
+      {
+        "Name": "Vegetable"
+      },
+      {
+        "Name": "Ham and Mushroom"
+      }
+    ],
+    "Bases": [
+      {
+        "Name": "Deep Pan",
+        "CookTimeMultiplier": 2
+      },
+      {
+        "Name": "Stuffed Crust",
+        "CookTimeMultiplier": 1.5
+      },
+      {
+        "Name": "Thin and Crispy",
+        "CookTimeMultiplier": 1
+      }
+    ]
+  }
+}

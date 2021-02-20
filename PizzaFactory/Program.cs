@@ -1,6 +1,8 @@
-﻿using Core.Configuration;
+﻿using Console.Configuration;
+using Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Threading.Tasks;
 
 namespace PizzaFactory
 {
@@ -9,23 +11,22 @@ namespace PizzaFactory
     /// </summary>
     public class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+
+            var useCase = host.Services.GetService<GeneratePizzasUseCase>();
+
+            await useCase.Execute();
         }
 
         static IHostBuilder CreateHostBuilder(string[] args)
         {
-            Host.CreateDefaultBuilder(args)
-                .ConfigureServices(_, services =>
+            return Host.CreateDefaultBuilder(args)
+                .ConfigureServices((_, services) =>
                 {
-                    services.ConfigureDependancies()
+                    services.ConfigureDependancies();
                 });
-        }
-
-        static IServiceCollection ConfigureDependancies(this IServiceCollection services)
-        {
-            return services.ConfigureCoreDependancies();
         }
     }
 }

@@ -4,5 +4,76 @@
         <name>Core</name>
     </assembly>
     <members>
+        <member name="T:Core.Configuration.CoreConfiguration">
+            <summary>
+            The configuration for Pizzas.
+            </summary>
+        </member>
+        <member name="P:Core.Configuration.CoreConfiguration.PizzaBases">
+            <summary>
+            A list of possible pizza bases.
+            </summary>
+        </member>
+        <member name="P:Core.Configuration.CoreConfiguration.Toppings">
+            <summary>
+            A list of possible pizza toppings.
+            </summary>
+        </member>
+        <member name="P:Core.Configuration.CoreConfiguration.PizzasToMake">
+            <summary>
+            The number of pizzas to generate
+            </summary>
+        </member>
+        <member name="P:Core.Configuration.CoreConfiguration.BasePizzaCookingTime">
+            <summary>
+            The baseline cooking time for a pizza in milliseconds
+            </summary>
+        </member>
+        <member name="P:Core.Configuration.CoreConfiguration.CookingInterval">
+            <summary>
+            The time between cooking in milliseconds 
+            </summary>
+        </member>
+        <member name="T:Core.Configuration.CoreConfigurer">
+            <summary>
+            Extension methods for configurating domain dependancies.
+            </summary>
+        </member>
+        <member name="M:Core.Configuration.CoreConfigurer.ConfigureCoreDependancies(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.GeneratePizzasUseCase">
+            <summary>
+            A <see cref="T:Core.GeneratePizzasUseCase"/>.
+            </summary>
+        </member>
+        <member name="M:Core.GeneratePizzasUseCase.#ctor(Core.Repositories.IPizzaRepository,Microsoft.Extensions.Options.IOptions{Core.Configuration.CoreConfiguration})">
+            <summary>
+            Creates an insatnce of the <see cref="T:Core.GeneratePizzasUseCase"/>
+            </summary>
+            <param name="pizzaRepository">The <see cref="T:Core.Repositories.IPizzaRepository"/> to use.</param>
+            <param name="pizzaOptions">The <see cref="T:Microsoft.Extensions.Options.IOptions`1"/> to use.</param>
+        </member>
+        <member name="M:Core.GeneratePizzasUseCase.Execute">
+            <summary>
+            Execute the <see cref="T:Core.GeneratePizzasUseCase"/>.
+            </summary>
+        </member>
+        <member name="T:Core.Repositories.IPizzaRepository">
+            <summary>
+            An <see cref="T:Core.Repositories.IPizzaRepository"/>.
+            </summary>
+        </member>
+        <member name="M:Core.Repositories.IPizzaRepository.SavePizza(Domain.Pizza)">
+            <summary>
+            Save a pizza to the repository.
+            </summary>
+            <param name="pizza">The <see cref="T:Domain.Pizza"/> to save.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/>.</returns>
+        </member>
     </members>
 </doc>

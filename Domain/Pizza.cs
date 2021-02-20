@@ -45,5 +45,11 @@ namespace Domain
                 Thread.Sleep(Convert.ToInt32(totalCookTime));
             }
         }
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return $"{Base.Name} - {Topping.Name}";
+        }
     }
 }

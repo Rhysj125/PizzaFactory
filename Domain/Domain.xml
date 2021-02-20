@@ -31,6 +31,9 @@
             Cook the pizza
             </summary>
         </member>
+        <member name="M:Domain.Pizza.ToString">
+            <inheritdoc/>
+        </member>
         <member name="T:Domain.PizzaBase">
             <summary>
             A <see cref="T:Domain.PizzaBase"/>.

@@ -16,9 +16,11 @@ namespace Core.Configuration
         /// <returns></returns>
         public static IServiceCollection ConfigureCoreDependancies(this IServiceCollection services) 
         {
-            services.ConfigureOptions<PizzaConfiguration>();
+            var config = new ConfigurationBuilder().AddJsonFile("Configuration/CoreSettings.json", optional: false, reloadOnChange: true).Build();
 
-            return services;
+            return services
+                .AddScoped<GeneratePizzasUseCase>()
+                .Configure<CoreConfiguration>(options => config.GetSection("CoreConfiguration").Bind(options));
         }
     }
 }

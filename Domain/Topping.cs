@@ -15,13 +15,13 @@ namespace Domain
         public string Name { get; private set; }
 
         /// <summary>
-        /// The amount of time taken to cook the topping.
+        /// The amount of time taken to cook the topping in milliseconds.
         /// </summary>
         public int CookTime
         {
             get
             {
-                return Name.Count();
+                return Name.Count() * 100;
             }
         }
 

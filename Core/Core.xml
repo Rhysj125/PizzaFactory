@@ -71,22 +71,40 @@
             The name of the topping.
             </summary>
         </member>
+        <member name="T:Core.Factories.IPizzaFactory">
+            <summary>
+            A factory for creating <see cref="T:Domain.Pizza"/>'s
+            </summary>
+        </member>
+        <member name="M:Core.Factories.IPizzaFactory.GeneratePizzas">
+            <summary>
+            Generate <see cref="T:Domain.Pizza"/>'s from configuration.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Core.GeneratePizzasUseCase">
             <summary>
             A <see cref="T:Core.GeneratePizzasUseCase"/>.
             </summary>
         </member>
-        <member name="M:Core.GeneratePizzasUseCase.#ctor(Core.Repositories.IPizzaRepository,Microsoft.Extensions.Options.IOptions{Core.Configuration.CoreConfiguration})">
+        <member name="M:Core.GeneratePizzasUseCase.#ctor(Core.Repositories.IPizzaRepository,Core.Factories.IPizzaFactory,Microsoft.Extensions.Options.IOptions{Core.Configuration.CoreConfiguration})">
             <summary>
             Creates an insatnce of the <see cref="T:Core.GeneratePizzasUseCase"/>
             </summary>
             <param name="pizzaRepository">The <see cref="T:Core.Repositories.IPizzaRepository"/> to use.</param>
-            <param name="pizzaOptions">The <see cref="T:Microsoft.Extensions.Options.IOptions`1"/> to use.</param>
+            <param name="pizzaFactory">The <see cref="T:Core.Factories.IPizzaFactory"/> to use.</param>
+            <param name="options">The <see cref="T:Microsoft.Extensions.Options.IOptions`1"/> to use.</param>
         </member>
         <member name="M:Core.GeneratePizzasUseCase.Execute">
             <summary>
             Execute the <see cref="T:Core.GeneratePizzasUseCase"/>.
             </summary>
+        </member>
+        <member name="M:Core.GeneratePizzasUseCase.ExecuteAsync">
+            <summary>
+            Execute the <see cref="T:Core.GeneratePizzasUseCase"/>.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/>.</returns>
         </member>
         <member name="T:Core.Repositories.IPizzaRepository">
             <summary>
@@ -98,6 +116,12 @@
             Save a pizza to the repository.
             </summary>
             <param name="pizza">The <see cref="T:Domain.Pizza"/> to save.</param>
+        </member>
+        <member name="M:Core.Repositories.IPizzaRepository.SavePizzaAsync(Domain.Pizza)">
+            <summary>
+            Save a pizza to the repository asynchronously.
+            </summary>
+            <param name="pizza">The <see cref="T:Domain.Pizza"/> to save</param>
             <returns>A <see cref="T:System.Threading.Tasks.Task"/>.</returns>
         </member>
     </members>

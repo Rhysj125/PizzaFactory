@@ -21,7 +21,7 @@ namespace Domain
         {
             get
             {
-                return Name.Count() * 100;
+                return Name.Replace(" ", "").Count() * 100;
             }
         }
 

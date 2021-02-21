@@ -3,16 +3,20 @@ using Domain;
 using Infrastructure.Configuration;
 using Microsoft.Extensions.Options;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Infrastructure
 {
     internal class FilePizzaRepository : IPizzaRepository
     {
         private readonly InfrastructureConfiguration _configuration;
+        private readonly SemaphoreSlim _lock;
 
         public FilePizzaRepository(IOptions<InfrastructureConfiguration> options)
         {
             _configuration = options.Value;
+            _lock = new SemaphoreSlim(1);
         }
 
         public void SavePizza(Pizza pizza)
@@ -21,6 +25,18 @@ namespace Infrastructure
             {
                 sw.WriteLine(pizza.ToString());
             }
+        }
+
+        public async Task SavePizzaAsync(Pizza pizza)
+        {
+            await _lock.WaitAsync();
+
+            using (var sw = CreateFile())
+            {
+                await sw.WriteLineAsync(pizza.ToString());
+            }
+
+            _lock.Release();
         }
 
         private StreamWriter CreateFile()

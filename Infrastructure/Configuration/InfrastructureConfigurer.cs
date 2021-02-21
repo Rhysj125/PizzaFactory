@@ -16,7 +16,7 @@ namespace Infrastructure.Configuration
             var config = new ConfigurationBuilder().AddJsonFile("Configuration/InfrastructureSettings.json", optional: false, reloadOnChange: true).Build();
 
             return services
-                .AddScoped<IPizzaRepository, FilePizzaRepository>()
+                .AddTransient<IPizzaRepository, FilePizzaRepository>()
                 .Configure<InfrastructureConfiguration>(options => config.GetSection("InfrastructureSettings").Bind(options));
         }
     }

@@ -25,7 +25,7 @@ namespace Domain
         /// <param name="cookingMultiplier"></param>
         public PizzaBase(string name, decimal cookingMultiplier)
         {
-            Name = !string.IsNullOrEmpty(name) ? name : throw new ArgumentNullException($"{nameof(name)} cannot be null");
+            Name = !string.IsNullOrEmpty(name) ? name : throw new ArgumentNullException(nameof(name));
             CookingMultiplier = cookingMultiplier;
         }
     }

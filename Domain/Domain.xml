@@ -30,6 +30,14 @@
             <summary>
             Cook the pizza
             </summary>
+            <param name="baseCookTime">The base cooking time of a pizza base.</param>
+        </member>
+        <member name="M:Domain.Pizza.CookAsync(System.Int32)">
+            <summary>
+            Cook the pizza asynchornously.
+            </summary>
+            <param name="baseCookTime">The base cooking time of a pizza base.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
         </member>
         <member name="M:Domain.Pizza.ToString">
             <inheritdoc/>
@@ -68,7 +76,7 @@
         </member>
         <member name="P:Domain.Topping.CookTime">
             <summary>
-            The amount of time taken to cook the topping.
+            The amount of time taken to cook the topping in milliseconds.
             </summary>
         </member>
         <member name="M:Domain.Topping.#ctor(System.String)">

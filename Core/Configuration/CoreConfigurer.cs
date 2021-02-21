@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Core.Factories;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Core.Configuration
@@ -20,6 +21,7 @@ namespace Core.Configuration
 
             return services
                 .AddScoped<GeneratePizzasUseCase>()
+                .AddScoped<IPizzaFactory, PizzaFactory>()
                 .Configure<CoreConfiguration>(options => config.GetSection("CoreSettings").Bind(options));
         }
     }

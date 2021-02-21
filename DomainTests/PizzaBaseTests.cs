@@ -11,7 +11,8 @@ namespace DomainTests
         public void PizzaBaseCtorThrowsNullExceptionWhenNameIsNull()
         {
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => new PizzaBase(null, 1));
+            var error = Assert.Throws<ArgumentNullException>(() => new PizzaBase(null, 1));
+            Assert.AreEqual("name", error.ParamName);
         }
     }
 }

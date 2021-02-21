@@ -1,8 +1,8 @@
 ﻿{
   "CoreSettings": {
     "PizzasToMake": 50,
-    "BasePizzaCookingTime": 10,
-    "CookingInterval": 20,
+    "BasePizzaCookingTime": 3000,
+    "CookingInterval": 1000,
     "ToppingConfigurations": [
       {
         "Name": "Pepperoni"

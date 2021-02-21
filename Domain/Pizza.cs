@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Domain
 {
@@ -34,6 +35,7 @@ namespace Domain
         /// <summary>
         /// Cook the pizza
         /// </summary>
+        /// <param name="baseCookTime">The base cooking time of a pizza base.</param>
         public void Cook(int baseCookTime)
         {
             if (!IsCooked)
@@ -43,7 +45,30 @@ namespace Domain
                 totalCookTime += Topping.CookTime;
 
                 Thread.Sleep(Convert.ToInt32(totalCookTime));
+
+                IsCooked = false;
             }
+        }
+
+        /// <summary>
+        /// Cook the pizza asynchornously.
+        /// </summary>
+        /// <param name="baseCookTime">The base cooking time of a pizza base.</param>
+        /// <returns>A <see cref="Task"/></returns>
+        public Task CookAsync(int baseCookTime)
+        {
+            if (!IsCooked)
+            {
+                var totalCookTime = baseCookTime * Base.CookingMultiplier;
+
+                totalCookTime += Topping.CookTime;
+
+                IsCooked = false;
+
+                return Task.Delay(Convert.ToInt32(totalCookTime));
+            }
+
+            return Task.FromResult(0);
         }
 
         /// <inheritdoc/>

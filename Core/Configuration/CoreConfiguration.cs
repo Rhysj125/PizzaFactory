@@ -1,4 +1,6 @@
-﻿namespace Core.Configuration
+﻿[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("CoreTests")]
+
+namespace Core.Configuration
 {
     /// <summary>
     /// The configuration for Pizzas.

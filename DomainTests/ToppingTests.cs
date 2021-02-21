@@ -13,9 +13,9 @@ namespace DomainTests
             Assert.Throws<ArgumentNullException>(() => new Topping(null));
         }
 
-        [TestCase("Pepperoni", 9)]
-        [TestCase("Cheese", 6)]
-        [TestCase("Ham & Pineapple", 13)]
+        [TestCase("Pepperoni", 900)]
+        [TestCase("Cheese", 600)]
+        [TestCase("Ham and Pineapple", 1500)]
         public void ToppingCookTimeReturnCorrectValue(string name, int expectedValue)
         {
             // Arrange

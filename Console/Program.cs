@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace PizzaFactory
 {
     /// <summary>
-    /// 
+    /// The <see cref="Program"/>
     /// </summary>
     public class Program
     {

@@ -37,10 +37,8 @@ namespace Core
         /// </summary>
         public void Execute()
         {
-            // Create 50 random pizzas
             var pizzas = _pizzaFactory.GeneratePizzas();
 
-            // Cook pizzas with interval
             foreach(var pizza in pizzas)
             {
                 pizza.Cook(_configuration.BasePizzaCookingTime);
@@ -52,7 +50,7 @@ namespace Core
         }
 
         /// <summary>
-        /// Execute the <see cref="GeneratePizzasUseCase"/>.
+        /// Execute the <see cref="GeneratePizzasUseCase"/> asynchronously.
         /// </summary>
         /// <returns>A <see cref="Task"/>.</returns>
         public async Task ExecuteAsync()
@@ -60,7 +58,6 @@ namespace Core
             var pizzas = _pizzaFactory.GeneratePizzas();
             var pizzaCookingTasks = new List<Task>();
 
-            // Cook pizzas with interval
             foreach (var pizza in pizzas)
             {
                 pizzaCookingTasks.Add(CookAndSave(pizza));

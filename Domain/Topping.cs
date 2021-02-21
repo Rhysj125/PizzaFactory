@@ -31,7 +31,7 @@ namespace Domain
         /// <param name="name"></param>
         public Topping(string name)
         {
-            Name = !string.IsNullOrEmpty(name) ? name : throw new ArgumentNullException($"{nameof(name)} cannot be null");
+            Name = !string.IsNullOrEmpty(name) ? name : throw new ArgumentNullException(nameof(name));
         }
     }
 }

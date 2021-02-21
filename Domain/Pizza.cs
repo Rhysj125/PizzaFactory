@@ -28,8 +28,8 @@ namespace Domain
         /// <param name="topping">The <see cref="Topping"/> to use.</param>
         public Pizza(PizzaBase pizzaBase, Topping topping)
         {
-            Base = pizzaBase ?? throw new ArgumentNullException($"{nameof(pizzaBase)} cannot be null");
-            Topping = topping ?? throw new ArgumentNullException($"{nameof(topping)} cannot be null");
+            Base = pizzaBase ?? throw new ArgumentNullException(nameof(pizzaBase));
+            Topping = topping ?? throw new ArgumentNullException(nameof(topping));
         }
 
         /// <summary>

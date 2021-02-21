@@ -10,39 +10,44 @@ namespace DomainTests
         private Topping _topping;
         private PizzaBase _pizzaBase;
 
+        private Pizza _sut;
+
         [SetUp]
         public void Setup()
         {
             _topping = new Topping("Test Topping");
             _pizzaBase = new PizzaBase("Test Base", 1);
+
+            _sut = new Pizza(_pizzaBase, _topping);
         }
 
         [Test]
         public void PizzaCtorThrowArgumentNullExceptionWhenBaseIsNull()
         {
             // Act && Assert
-            Assert.Throws<ArgumentNullException>(() => new Pizza(null, _topping));
+            var error = Assert.Throws<ArgumentNullException>(() => new Pizza(null, _topping));
+            Assert.AreEqual("pizzaBase", error.ParamName);
         }
 
         [Test]
         public void PizzaCtorThrowArgumentNullExceptionWhenToppingIsNull()
         {
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => new Pizza(_pizzaBase, null));
+            var error = Assert.Throws<ArgumentNullException>(() => new Pizza(_pizzaBase, null));
+            Assert.AreEqual("topping", error.ParamName);
         }
 
         [Test]
         public void PizzaToStringHasBaseAndToppingName()
         {
             // Arrange
-            var pizza = new Pizza(_pizzaBase, _topping);
             var expectedPizzaName = $"{_pizzaBase.Name} - {_topping.Name}";
 
             // Act
-            var pizzaString = pizza.ToString();
+            var pizzaString = _sut.ToString();
 
             // Assert
-            Assert.AreEqual(expectedPizzaName ,pizzaString);
+            Assert.AreEqual(expectedPizzaName, pizzaString);
         }
     }
 }
